@@ -1,22 +1,24 @@
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import TaskView from "../TaskView";
+import { useContext } from "react";
+import TaskContext from "@Context/TasksContext";
 
-import type { taskView } from "../TaskView/TaskView";
-
-const TaskContainer = ({tasks} : {tasks: Array<taskView>}) => {
-    return <View style={[styles.taskContainer]}>{
-        tasks.map((task, index) => { 
-            return <TaskView { ...task } index={index + 1} />;
-         }) 
-        }
-        </View>
+const TaskContainer = () => {
+  const { tasks } = useContext(TaskContext);
+  return (
+    <ScrollView style={[styles.taskContainer]}>
+      {[...tasks].map((task) => {
+        return <TaskView {...task} />;
+      })}
+    </ScrollView>
+  );
 };
 
 const styles = StyleSheet.create({
-    taskContainer: {
-        flex: 1,
-        backgroundColor: '#222',
-    }
+  taskContainer: {
+    flex: 1,
+    backgroundColor: "#222",
+  },
 });
 
 export default TaskContainer;

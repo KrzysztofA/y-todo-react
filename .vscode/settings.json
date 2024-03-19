@@ -1,0 +1,36 @@
+{
+  "folderTemplates.fileTemplates": {
+    "Index File": ["import <FTName> from \"./<FTName>\";", "", "export default <FTName>;"],
+    "Basic Component": [
+      "import { View, StyleSheet } from \"react-native\";",
+      "",
+      "const <FTName> = () => {",
+      "return (",
+      "    <View style={[styles.<FTName>]}></View>",
+      "  );",
+      "};",
+      "",
+      "const styles = StyleSheet.create({",
+      "  <FTName>: {}",
+      "});",
+      "",
+      "export default <FTName>;"
+    ]
+  },
+  "folderTemplates.structures": [
+    {
+      "name": "Basic React Native",
+      "structure": [
+        {
+          "fileName": "<FTName>.tsx",
+          "template": "Basic Component"
+        },
+
+        {
+          "fileName": "index.ts",
+          "template": "Index File"
+        }
+      ]
+    }
+  ]
+}

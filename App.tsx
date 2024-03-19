@@ -1,26 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, View } from 'react-native';
-import TaskContainer from './Components/TaskContainer';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, View } from "react-native";
 
-export default function App() {
+import TaskContainer from "@Components/TaskContainer";
+import AddTaskButton from "@Components/AddTaskButton";
+import TasksProfileMenu from "@Components/TasksProfileMenu";
+import TaskContext from "@Context/TasksContext";
+import useTasksReducer from "@Hooks/useTasksReducer";
+
+const App = () => {
+  const { tasks, changeTaskStatus, getTaskStatus } = useTasksReducer("");
+
   return (
     <View style={[styles.mainView]}>
-      <TaskContainer tasks={[ 
-        { title: "Important Task", description: "Something very important you need to do" },
-        { title: "Important Task", description: "Something very important you need to do" },
-        { title: "Important Task", description: "Something very important you need to do" },
-        { title: "Important Task", description: "Something very important you need to do" },
-        { title: "Important Task", description: "Something very important you need to do" },
-        { title: "Important Task", description: "Something very important you need to do" },
-      ]}
-      />
-      <View style={[styles.addTaskButton]}>
-        <Button title="Add new task"/>
-      </View>
+      <TasksProfileMenu />
+      <TaskContext.Provider value={{ tasks: tasks, changeTaskStatus: changeTaskStatus, getTaskStatus: getTaskStatus }}>
+        <TaskContainer />
+      </TaskContext.Provider>
+      <AddTaskButton />
       <StatusBar style="auto" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   mainView: {
@@ -30,15 +30,17 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#222',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    backgroundColor: "#222",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
   },
   taskText: {
-    color: '#fff',
+    color: "#fff",
   },
   addTaskButton: {
     position: "relative",
     width: "100%",
   },
 });
+
+export default App;
