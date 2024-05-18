@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native";
 
 import { taskStatusMap } from "@Library/types";
 
-import type { Status, StatusState } from "@Library/types";
-import { SetStateAction, Dispatch, useContext } from "react";
+import type { Status } from "@Library/types";
+import { useContext, useDeferredValue, useEffect, useState } from "react";
 import TaskContext from "@Context/TasksContext";
 
 type statusData = {
@@ -21,14 +21,22 @@ const data: Array<statusData> = [
 
 const TaskViewStatusDropdown = ({ index }: { index: number }) => {
   const { changeTaskStatus, getTaskStatus } = useContext(TaskContext);
+  const value = useDeferredValue<Status>(getTaskStatus(index));
+
   return (
     <Dropdown
       style={[styles.dropdown]}
+      itemTextStyle={[styles.text]}
+      containerStyle={[styles.list]}
+      selectedTextStyle={[styles.text]}
+      placeholderStyle={[styles.list, styles.text]}
+      inputSearchStyle={[styles.list]}
+      activeColor="#669"
       data={data}
       search={false}
       labelField="label"
       valueField="value"
-      value={getTaskStatus(index)}
+      value={value}
       onFocus={() => {
         return null;
       }}
@@ -46,6 +54,11 @@ const styles = StyleSheet.create({
   dropdown: {
     height: "80%",
     width: "10%",
+  },
+  list: {
+    backgroundColor: "#223",
+  },
+  text: {
     color: "#fff",
   },
 });

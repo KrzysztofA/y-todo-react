@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Status, Task, StatusState, TaskData } from "@Library/types";
 import taskSort from "@Library/taskSort";
-import useUpdateEffect from "./useUpdateEffect";
+import useUpdateLayoutEffect from "./useUpdateLayoutEffect";
 
 const useTasksReducer = (profile: string) => {
   const [tasks, setTasksArray] = useState<Array<Task>>(new Array<Task>());
@@ -15,7 +15,7 @@ const useTasksReducer = (profile: string) => {
     return tasks[index].status;
   };
 
-  useUpdateEffect(() => {
+  useUpdateLayoutEffect(() => {
     setTasksArray(() => {
       return tasks
         .map((task, index) => {
@@ -33,145 +33,145 @@ const useTasksReducer = (profile: string) => {
   useEffect(() => {
     let tasksData: Array<TaskData> = [
       {
-        title: "Important Task",
+        title: "Important Task12",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Task32",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Task1",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Task2",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskas",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskczx",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskfqw",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskbewq",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskqre",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskqqqqq",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskqwwq",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Importantaa Taskqq",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskasas",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskzzzzzzzzc",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskaaaaaas",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskzzzzzzcxz",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskcxzzzzzz",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskcxzcxzcxz",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskqwfqwf",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskqwffwqa",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskasdsaf",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskqweqw",
         description: "Something very important you need to do",
         date: new Date(2025, 5, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskzzzzzz",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
       },
       {
-        title: "Important Task",
+        title: "Important Taskwqewwqwe",
         description: "Something very important you need to do",
         date: new Date(2025, 3, 15),
         status: "To Do",
